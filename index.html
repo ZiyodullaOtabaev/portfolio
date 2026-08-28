@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,22 +14,31 @@
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
+  <!-- NAV -->
   <nav class="nav" id="navbar">
     <div class="nav-inner">
       <span class="nav-logo">ZO.</span>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#about"      data-i18n="navAbout">About</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#education"  data-i18n="navEducation">Education</a>
+        <a href="#skills"     data-i18n="navSkills">Skills</a>
+        <a href="#projects"   data-i18n="navProjects">Projects</a>
+        <a href="#contact"    data-i18n="navContact">Contact</a>
       </div>
       <div class="nav-actions">
-        <button class="btn-cv" id="downloadCV" onclick="downloadCV()">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download CV
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+          <button class="lang-btn"        data-lang="uz" onclick="setLang('uz')">UZ</button>
+          <button class="lang-btn"        data-lang="ru" onclick="setLang('ru')">RU</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun"  width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="btn-cv" onclick="downloadCV()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="downloadCV">Download CV</span>
         </button>
         <button class="nav-burger" id="burger" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -40,21 +49,26 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#experience" onclick="closeMenu()">Experience</a>
-    <a href="#education" onclick="closeMenu()">Education</a>
-    <a href="#skills" onclick="closeMenu()">Skills</a>
-    <a href="#projects" onclick="closeMenu()">Projects</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#about"      onclick="closeMenu()" data-i18n="navAbout">About</a>
+    <a href="#experience" onclick="closeMenu()" data-i18n="navExperience">Experience</a>
+    <a href="#education"  onclick="closeMenu()" data-i18n="navEducation">Education</a>
+    <a href="#skills"     onclick="closeMenu()" data-i18n="navSkills">Skills</a>
+    <a href="#projects"   onclick="closeMenu()" data-i18n="navProjects">Projects</a>
+    <a href="#contact"    onclick="closeMenu()" data-i18n="navContact">Contact</a>
+    <div class="mobile-lang">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn"        data-lang="uz" onclick="setLang('uz')">UZ</button>
+      <button class="lang-btn"        data-lang="ru" onclick="setLang('ru')">RU</button>
+    </div>
     <button class="btn-cv-mobile" onclick="downloadCV(); closeMenu()">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download CV
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span data-i18n="downloadCV">Download CV</span>
     </button>
   </div>
 
   <main>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="hero" id="hero">
       <div class="container">
         <div class="hero-inner">
@@ -65,27 +79,22 @@
               <span class="tag">Backend</span>
               <span class="tag">AI · ML</span>
             </div>
-            <h1 class="hero-title">Ziyodulla <br /><span class="accent">Otabayev</span></h1>
+            <h1 class="hero-title">Ziyodulla<br /><span class="accent">Otabayev</span></h1>
             <p class="hero-location">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              Xorazm Viloyati, Xiva tumani — O`zbekiston 🇺🇿
+              <span data-i18n="heroLocation">Xorazm Viloyati, Xiva tumani — O'zbekiston 🇺🇿</span>
             </p>
-            <p class="hero-subtitle">Python / Django Backend Developer</p>
-            <p class="hero-bio">
-              Backend developer focused on building scalable web applications and AI-powered systems.
-              Experienced with real-world AI projects and passionate about turning complex ideas into clean, working software.
-            </p>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">Python / Django Backend Developer</p>
+            <p class="hero-bio" data-i18n="heroBio">Backend developer focused on building scalable web applications and AI-powered systems. Experienced with real-world AI projects and passionate about turning complex ideas into clean, working software.</p>
             <div class="hero-cta">
-              <a href="#contact" class="btn btn-primary">Get in Touch</a>
-              <a href="#projects" class="btn btn-outline">View Projects</a>
+              <a href="#contact" class="btn btn-primary" data-i18n="heroCta1">Get in Touch</a>
+              <a href="#projects" class="btn btn-outline" data-i18n="heroCta2">View Projects</a>
               <button class="btn btn-ghost" onclick="downloadCV()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download CV
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="downloadCV">Download CV</span>
               </button>
             </div>
           </div>
-
-          <!-- Profile Photo -->
           <div class="hero-photo-wrap">
             <div class="hero-photo-ring">
               <div class="hero-photo-border">
@@ -94,373 +103,236 @@
             </div>
             <div class="hero-photo-badge">
               <span class="badge-dot"></span>
-              Open to work
+              <span data-i18n="heroStatus">Open to work</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="hero-scroll">
-        <span>scroll</span>
-        <div class="scroll-line"></div>
-      </div>
+      <div class="hero-scroll"><span>scroll</span><div class="scroll-line"></div></div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
-        <div class="section-label">01 / About</div>
-        <h2 class="section-title">About Me</h2>
+        <div class="section-label" data-i18n="labelAbout">01 / About</div>
+        <h2 class="section-title" data-i18n="titleAbout">About Me</h2>
         <div class="about-grid">
           <div class="about-text">
-            <p>
-              I'm a Backend Developer with a strong foundation in Python and Django,
-              building web applications and AI-integrated systems. I gained hands-on
-              experience through a <strong>5-month internship at AI Vision</strong>,
-              where I worked directly on an AI project from the ground up.
-            </p>
-            <p>
-              I care deeply about writing clean, maintainable code and I'm always
-              looking for ways to improve performance and developer experience.
-              I move fast, stay focused on results, and bring accountability to
-              every project I work on.
-            </p>
-            <p>
-              Currently open to new opportunities — whether it's a startup,
-              product team, or freelance project.
-            </p>
+            <p data-i18n-html="aboutP1">I'm a Backend Developer with a strong foundation in Python and Django, building web applications and AI-integrated systems. I gained hands-on experience through a <strong>5-month internship at AI Vision</strong>, where I worked directly on an AI project from the ground up.</p>
+            <p data-i18n="aboutP2">I care deeply about writing clean, maintainable code and I'm always looking for ways to improve performance and developer experience. I move fast, stay focused on results, and bring accountability to every project I work on.</p>
+            <p data-i18n="aboutP3">Currently open to new opportunities — whether it's a startup, product team, or freelance project.</p>
           </div>
           <div class="about-stats">
-            <div class="stat">
-              <span class="stat-num">5+</span>
-              <span class="stat-label">Months Experience</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">4+</span>
-              <span class="stat-label">Projects Shipped</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">10+</span>
-              <span class="stat-label">Technologies</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">∞</span>
-              <span class="stat-label">Curiosity</span>
-            </div>
+            <div class="stat"><span class="stat-num">5+</span><span class="stat-label" data-i18n="statLabel1">Months Experience</span></div>
+            <div class="stat"><span class="stat-num">4+</span><span class="stat-label" data-i18n="statLabel2">Projects Shipped</span></div>
+            <div class="stat"><span class="stat-num">10+</span><span class="stat-label" data-i18n="statLabel3">Technologies</span></div>
+            <div class="stat"><span class="stat-num">∞</span><span class="stat-label" data-i18n="statLabel4">Curiosity</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== EXPERIENCE ===== -->
+    <!-- EXPERIENCE -->
     <section class="section section-alt" id="experience">
       <div class="container">
-        <div class="section-label">02 / Experience</div>
-        <h2 class="section-title">Work Experience</h2>
+        <div class="section-label" data-i18n="labelExp">02 / Experience</div>
+        <h2 class="section-title" data-i18n="titleExp">Work Experience</h2>
         <div class="timeline">
           <div class="timeline-item current">
-            <div class="timeline-marker">
-              <div class="timeline-dot pulse"></div>
-            </div>
+            <div class="timeline-marker"><div class="timeline-dot pulse"></div></div>
             <div class="timeline-content">
               <div class="timeline-header">
                 <div>
-                  <h3 class="timeline-role">Backend Developer Intern</h3>
-                  <p class="timeline-company">AI Vision <span class="badge badge-remote">Internship</span></p>
+                  <h3 class="timeline-role" data-i18n="role1">Backend Developer Intern</h3>
+                  <p class="timeline-company"><span data-i18n="company1">AI Vision</span> <span class="badge badge-remote" data-i18n="badge1">Internship</span></p>
                 </div>
-                <div class="timeline-date">5 months · 2025</div>
+                <div class="timeline-date" data-i18n="date1">5 months · 2025</div>
               </div>
               <ul class="timeline-desc">
-                <li>Worked on a real AI project from concept to deployment</li>
-                <li>Built backend services and APIs using Python and Django</li>
-                <li>Collaborated with the team on AI model integration</li>
-                <li>Gained hands-on experience with production-grade systems</li>
+                <li data-i18n="exp1li1">Worked on a real AI project from concept to deployment</li>
+                <li data-i18n="exp1li2">Built backend services and REST APIs using Python and Django</li>
+                <li data-i18n="exp1li3">Collaborated with the team on AI model integration and testing</li>
+                <li data-i18n="exp1li4">Gained hands-on experience with production-grade systems</li>
               </ul>
               <div class="timeline-tags">
-                <span class="t-tag">Python</span>
-                <span class="t-tag">Django</span>
-                <span class="t-tag">AI / ML</span>
-                <span class="t-tag">PostgreSQL</span>
+                <span class="t-tag">Python</span><span class="t-tag">Django</span>
+                <span class="t-tag">AI / ML</span><span class="t-tag">PostgreSQL</span><span class="t-tag">Docker</span>
               </div>
             </div>
           </div>
-
-          <div class="timeline-milestone">
-            <span>🎉 2024 — Started Software Engineering at Millat Umidi University</span>
-          </div>
-
+          <div class="timeline-milestone"><span data-i18n="milestone1">🎉 2024 — Started Software Engineering at Millat Umidi University</span></div>
           <div class="timeline-item">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-            </div>
+            <div class="timeline-marker"><div class="timeline-dot"></div></div>
             <div class="timeline-content">
               <div class="timeline-header">
                 <div>
-                  <h3 class="timeline-role">Freelance Backend Developer</h3>
-                  <p class="timeline-company">Self-employed <span class="badge badge-freelance">Freelance</span></p>
+                  <h3 class="timeline-role" data-i18n="role2">Freelance Backend Developer</h3>
+                  <p class="timeline-company"><span data-i18n="company2">Self-employed</span> <span class="badge badge-freelance" data-i18n="badge2">Freelance</span></p>
                 </div>
-                <div class="timeline-date">2024 – Present</div>
+                <div class="timeline-date" data-i18n="date2">2024 – Present</div>
               </div>
               <ul class="timeline-desc">
-                <li>Built and launched multiple personal and client projects</li>
-                <li>Developed Telegram bots with AI integration</li>
-                <li>Created TalabaHub — a platform for students</li>
-                <li>Led mobile app development for a barbershop startup</li>
+                <li data-i18n="exp2li1">Built and launched multiple personal and client projects end-to-end</li>
+                <li data-i18n="exp2li2">Developed AI-powered Telegram bots for PDF and video analysis</li>
+                <li data-i18n="exp2li3">Created TalabaHub — a student resource and community platform</li>
+                <li data-i18n="exp2li4">Led mobile app development for a barbershop startup (Flutter + Django)</li>
               </ul>
               <div class="timeline-tags">
-                <span class="t-tag">Django REST</span>
-                <span class="t-tag">Telegram API</span>
-                <span class="t-tag">Docker</span>
-                <span class="t-tag">Flutter</span>
+                <span class="t-tag">Django REST</span><span class="t-tag">Telegram API</span>
+                <span class="t-tag">Docker</span><span class="t-tag">Flutter</span><span class="t-tag">MySQL</span>
               </div>
             </div>
           </div>
-
-          <div class="timeline-milestone">
-            <span>⛳ 2023 — First lines of code. The journey begins.</span>
-          </div>
+          <div class="timeline-milestone"><span data-i18n="milestone2">⛳ 2023 — First lines of code. The journey begins.</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ===== EDUCATION ===== -->
+    <!-- EDUCATION -->
     <section class="section" id="education">
       <div class="container">
-        <div class="section-label">03 / Education</div>
-        <h2 class="section-title">Education</h2>
+        <div class="section-label" data-i18n="labelEdu">03 / Education</div>
+        <h2 class="section-title" data-i18n="titleEdu">Education</h2>
         <div class="edu-card">
           <div class="edu-icon">🎓</div>
           <div class="edu-info">
-            <h3>Millat Umidi University</h3>
-            <p class="edu-degree">Bachelor's — Software Engineering</p>
-            <p class="edu-period">2024 – Present</p>
-            <p class="edu-desc">
-              Studying software engineering fundamentals, algorithms, data structures,
-              and modern software development practices with a focus on backend systems.
-            </p>
+            <h3 data-i18n="uniName">Millat Umidi University</h3>
+            <p class="edu-degree" data-i18n="uniDegree">Bachelor's — Software Engineering</p>
+            <p class="edu-period" data-i18n="uniPeriod">2024 – Present</p>
+            <p class="edu-desc" data-i18n="uniDesc">Studying software engineering fundamentals, algorithms, data structures, and modern software development practices with a focus on backend systems.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== SKILLS ===== -->
+    <!-- SKILLS -->
     <section class="section section-alt" id="skills">
       <div class="container">
-        <div class="section-label">04 / Skills</div>
-        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="section-label" data-i18n="labelSkills">04 / Skills</div>
+        <h2 class="section-title" data-i18n="titleSkills">Skills & Technologies</h2>
         <div class="skills-grid">
-          <div class="skill-group">
-            <div class="skill-group-icon">🐍</div>
-            <h4>Languages</h4>
-            <div class="skill-pills">
-              <span class="pill pill-primary">Python</span>
-              <span class="pill">Dart</span>
-              <span class="pill">HTML</span>
-              <span class="pill">CSS</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-icon">🛠️</div>
-            <h4>Frameworks</h4>
-            <div class="skill-pills">
-              <span class="pill pill-primary">Django</span>
-              <span class="pill">Django REST</span>
-              <span class="pill">Flutter</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-icon">🗄️</div>
-            <h4>Databases</h4>
-            <div class="skill-pills">
-              <span class="pill pill-primary">PostgreSQL</span>
-              <span class="pill">MySQL</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-icon">☁️</div>
-            <h4>Infrastructure</h4>
-            <div class="skill-pills">
-              <span class="pill pill-primary">Docker</span>
-              <span class="pill">Linux</span>
-              <span class="pill">Git</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-icon">🤖</div>
-            <h4>AI / ML</h4>
-            <div class="skill-pills">
-              <span class="pill pill-primary">Machine Learning</span>
-              <span class="pill">AI Integration</span>
-              <span class="pill">Telegram Bot API</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-icon">🔐</div>
-            <h4>Security</h4>
-            <div class="skill-pills">
-              <span class="pill">Kali Linux</span>
-              <span class="pill">Cybersecurity Basics</span>
-            </div>
-          </div>
+          <div class="skill-group"><div class="skill-group-icon">🐍</div><h4 data-i18n="skillLang">Languages</h4><div class="skill-pills"><span class="pill pill-primary">Python</span><span class="pill">Dart</span><span class="pill">HTML</span><span class="pill">CSS</span></div></div>
+          <div class="skill-group"><div class="skill-group-icon">🛠️</div><h4 data-i18n="skillFramework">Frameworks</h4><div class="skill-pills"><span class="pill pill-primary">Django</span><span class="pill">Django REST</span><span class="pill">Flutter</span></div></div>
+          <div class="skill-group"><div class="skill-group-icon">🗄️</div><h4 data-i18n="skillDb">Databases</h4><div class="skill-pills"><span class="pill pill-primary">PostgreSQL</span><span class="pill">MySQL</span></div></div>
+          <div class="skill-group"><div class="skill-group-icon">☁️</div><h4 data-i18n="skillInfra">Infrastructure</h4><div class="skill-pills"><span class="pill pill-primary">Docker</span><span class="pill">Linux</span><span class="pill">Git</span><span class="pill">GitHub</span></div></div>
+          <div class="skill-group"><div class="skill-group-icon">🤖</div><h4 data-i18n="skillAi">AI / ML</h4><div class="skill-pills"><span class="pill pill-primary">Machine Learning</span><span class="pill">AI Integration</span><span class="pill">Telegram Bot API</span></div></div>
+          <div class="skill-group"><div class="skill-group-icon">🔐</div><h4 data-i18n="skillSec">Security</h4><div class="skill-pills"><span class="pill">Kali Linux</span><span class="pill">Cybersecurity Basics</span></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
+    <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
-        <div class="section-label">05 / Projects</div>
-        <h2 class="section-title">Projects</h2>
+        <div class="section-label" data-i18n="labelProjects">05 / Projects</div>
+        <h2 class="section-title" data-i18n="titleProjects">Projects</h2>
         <div class="projects-grid">
-
           <div class="project-card featured">
-            <div class="project-header">
-              <div class="project-emoji">💈</div>
-              <a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
-            <h3>Sartaroshxona Mobile App</h3>
-            <p class="project-type">🚀 Start-up · Mobile Application</p>
-            <p class="project-desc">A mobile application for barbershop management — booking appointments, managing schedules, and connecting barbers with clients. Built as a startup product.</p>
-            <div class="project-stack">
-              <span class="t-tag">Dart</span><span class="t-tag">Flutter</span>
-              <span class="t-tag">Django REST</span><span class="t-tag">PostgreSQL</span>
-            </div>
+            <div class="project-header"><div class="project-emoji">💈</div><a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+            <h3 data-i18n="proj1Title">Sartaroshxona Mobile App</h3>
+            <p class="project-type" data-i18n="proj1Type">🚀 Start-up · Mobile Application</p>
+            <p class="project-desc" data-i18n="proj1Desc">A mobile application for barbershop management — booking appointments, managing schedules, and connecting barbers with clients. Built as a startup product.</p>
+            <div class="project-stack"><span class="t-tag">Dart</span><span class="t-tag">Flutter</span><span class="t-tag">Django REST</span><span class="t-tag">PostgreSQL</span></div>
           </div>
-
           <div class="project-card">
-            <div class="project-header">
-              <div class="project-emoji">🤖</div>
-              <a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
-            <h3>AI PDF & Video Telegram Bot</h3>
-            <p class="project-type">🤖 AI · Telegram Bot</p>
-            <p class="project-desc">A Telegram bot that uses AI to process and analyze PDF documents and videos. Users can upload files and get intelligent summaries, Q&A, and insights.</p>
-            <div class="project-stack">
-              <span class="t-tag">Python</span><span class="t-tag">Telegram API</span>
-              <span class="t-tag">AI / ML</span><span class="t-tag">Django</span>
-            </div>
+            <div class="project-header"><div class="project-emoji">🤖</div><a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+            <h3 data-i18n="proj2Title">AI PDF & Video Telegram Bot</h3>
+            <p class="project-type" data-i18n="proj2Type">🤖 AI · Telegram Bot</p>
+            <p class="project-desc" data-i18n="proj2Desc">A Telegram bot that uses AI to process and analyze PDF documents and videos. Users can upload files and get intelligent summaries, Q&A, and insights.</p>
+            <div class="project-stack"><span class="t-tag">Python</span><span class="t-tag">Telegram API</span><span class="t-tag">AI / ML</span><span class="t-tag">Django</span></div>
           </div>
-
           <div class="project-card">
-            <div class="project-header">
-              <div class="project-emoji">🎓</div>
-              <a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
-            <h3>TalabaHub</h3>
-            <p class="project-type">🌐 Web Application</p>
-            <p class="project-desc">A web platform built for students — connecting talabalar with resources, communities, and opportunities. A hub for academic and personal development.</p>
-            <div class="project-stack">
-              <span class="t-tag">Django</span><span class="t-tag">PostgreSQL</span>
-              <span class="t-tag">HTML/CSS</span><span class="t-tag">Python</span>
-            </div>
+            <div class="project-header"><div class="project-emoji">🎓</div><a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+            <h3 data-i18n="proj3Title">TalabaHub</h3>
+            <p class="project-type" data-i18n="proj3Type">🌐 Web Application</p>
+            <p class="project-desc" data-i18n="proj3Desc">A web platform built for students — connecting talabalar with resources, communities, and opportunities. A hub for academic and personal development.</p>
+            <div class="project-stack"><span class="t-tag">Django</span><span class="t-tag">PostgreSQL</span><span class="t-tag">HTML/CSS</span><span class="t-tag">Python</span></div>
           </div>
-
           <div class="project-card">
-            <div class="project-header">
-              <div class="project-emoji">💪</div>
-              <a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link" title="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-              </a>
-            </div>
-            <h3>FitnesBot</h3>
-            <p class="project-type">🤖 Fitness · Telegram Bot</p>
-            <p class="project-desc">A Telegram bot designed to help users track workouts, get personalized fitness plans, and stay motivated on their fitness journey.</p>
-            <div class="project-stack">
-              <span class="t-tag">Python</span><span class="t-tag">Telegram API</span>
-              <span class="t-tag">MySQL</span>
-            </div>
+            <div class="project-header"><div class="project-emoji">💪</div><a href="https://github.com/ZiyodullaOtabaev" target="_blank" class="project-link"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a></div>
+            <h3 data-i18n="proj4Title">FitnesBot</h3>
+            <p class="project-type" data-i18n="proj4Type">🤖 Fitness · Telegram Bot</p>
+            <p class="project-desc" data-i18n="proj4Desc">A Telegram bot designed to help users track workouts, get personalized fitness plans, and stay motivated on their fitness journey.</p>
+            <div class="project-stack"><span class="t-tag">Python</span><span class="t-tag">Telegram API</span><span class="t-tag">MySQL</span></div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- CONTACT -->
     <section class="section section-contact" id="contact">
       <div class="container">
-        <div class="section-label">06 / Contact</div>
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="contact-intro">
-          I'm currently open to new opportunities. Whether it's a full-time role,
-          freelance project, or just a conversation — feel free to reach out!
-        </p>
+        <div class="section-label" data-i18n="labelContact">06 / Contact</div>
+        <h2 class="section-title" data-i18n="titleContact">Get in Touch</h2>
+        <p class="contact-intro" data-i18n="contactIntro">I'm currently open to new opportunities. Whether it's a full-time role, freelance project, or just a conversation — feel free to reach out!</p>
         <div class="contact-cards">
+
           <a href="tel:+998941212528" class="contact-card">
-            <div class="contact-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="contact-info">
-              <span class="contact-label">CALL ME</span>
-              <span class="contact-value">+998 94 121 25 28</span>
-            </div>
-            <svg class="contact-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div class="contact-icon ci-purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaCall">CALL ME</span><span class="contact-value">+998 94 121 25 28</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
           <a href="mailto:ziyodullamee@gmail.com" class="contact-card">
-            <div class="contact-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="contact-info">
-              <span class="contact-label">SEND EMAIL</span>
-              <span class="contact-value">ziyodullamee@gmail.com</span>
-            </div>
-            <svg class="contact-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div class="contact-icon ci-purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaEmail">SEND EMAIL</span><span class="contact-value">ziyodullamee@gmail.com</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="https://t.me/ziyodullame" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon ci-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 14.09l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.936.496z"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaTelegram">MESSAGE on TELEGRAM</span><span class="contact-value">@ziyodullame</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="https://t.me/xonziy" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon ci-blue"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 14.09l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.936.496z"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaTgChannel">TELEGRAM CHANNEL</span><span class="contact-value">@xonziy</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+          <a href="https://instagram.com/ziyodullame" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-icon ci-pink"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaInstagram">FOLLOW on INSTAGRAM</span><span class="contact-value">@ziyodullame</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
           <a href="https://github.com/ZiyodullaOtabaev" target="_blank" rel="noopener" class="contact-card">
-            <div class="contact-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            </div>
-            <div class="contact-info">
-              <span class="contact-label">VIEW CODE on GITHUB</span>
-              <span class="contact-value">ZiyodullaOtabaev</span>
-            </div>
-            <svg class="contact-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div class="contact-icon ci-purple"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaGithub">VIEW CODE on GITHUB</span><span class="contact-value">ZiyodullaOtabaev</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
 
           <a href="https://linkedin.com/in/ZiyodullaOtabayev" target="_blank" rel="noopener" class="contact-card">
-            <div class="contact-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-            <div class="contact-info">
-              <span class="contact-label">CONNECT on LINKEDIN</span>
-              <span class="contact-value">ZiyodullaOtabayev</span>
-            </div>
-            <svg class="contact-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <div class="contact-icon ci-linkedin"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+            <div class="contact-info"><span class="contact-label" data-i18n="ctaLinkedin">CONNECT on LINKEDIN</span><span class="contact-value">ZiyodullaOtabayev</span></div>
+            <svg class="contact-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
+
         </div>
-        <p class="contact-timezone">
-          Current time for me: <span id="localTime"></span> (GMT+5, Uzbekistan)
-        </p>
+        <p class="contact-timezone"><span data-i18n="timezoneText">Current time for me:</span> <span id="localTime"></span> (GMT+5)</p>
       </div>
     </section>
-
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
         <span class="footer-logo">ZO.</span>
-        <p>&copy; 2025 Ziyodulla Otabayev. Built with clean code.</p>
+        <p data-i18n="footerText">&copy; 2025 Ziyodulla Otabayev. Built with clean code.</p>
         <div class="footer-links">
           <a href="https://github.com/ZiyodullaOtabaev" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/ZiyodullaOtabayev" target="_blank">LinkedIn</a>
+          <a href="https://t.me/ziyodullame" target="_blank">Telegram</a>
+          <a href="https://instagram.com/ziyodullame" target="_blank">Instagram</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ===== PRINT CV OVERLAY ===== -->
   <div id="printOverlay" class="print-overlay hidden">
     <div class="print-spinner">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7c6fff" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-      <p>Preparing your CV...</p>
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7c6fff" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <p data-i18n="preparingCV">Preparing your CV...</p>
     </div>
   </div>
 
