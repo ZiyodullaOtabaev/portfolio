@@ -159,6 +159,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); font
 .timeline-milestone { display: flex; align-items: center; padding: 0.65rem 1rem; margin-left: 30px; margin-bottom: 2rem; color: var(--text-dim); font-size: 0.82rem; font-style: italic; border-left: 2px solid var(--accent); background: rgba(124,111,255,0.04); border-radius: 0 6px 6px 0; }
 
 /* ---- EDUCATION ---- */
+.edu-cards-list { display: flex; flex-direction: column; gap: 1.25rem; }
 .edu-card { display: flex; gap: 2rem; align-items: flex-start; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; transition: border-color 0.3s; }
 .edu-card:hover { border-color: rgba(124,111,255,0.3); }
 .edu-icon { font-size: 3rem; line-height: 1; }
