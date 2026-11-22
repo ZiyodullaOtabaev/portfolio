@@ -543,6 +543,9 @@ main, .footer { position: relative; z-index: 1; }
 .about-grid { display: grid; grid-template-columns: 1fr 310px; gap: 3.5rem; align-items: start; }
 .about-text p { color: var(--text-muted); margin-bottom: 1.15rem; font-size: 0.98rem; line-height: 1.85; }
 .about-text strong { color: var(--text); font-weight: 600; }
+.about-langs { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+.about-lang-label { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-right: 0.25rem; }
+.about-lang-label svg { color: var(--accent); }
 .about-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
