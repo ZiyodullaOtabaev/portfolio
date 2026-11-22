@@ -203,10 +203,9 @@ const T = {
 };
 
 let currentLang = localStorage.getItem("lang") || "en";
+let langSwapTimer = null;
 
-function setLang(lang) {
-  currentLang = lang;
-  localStorage.setItem("lang", lang);
+function applyLangTexts(lang) {
   const t = T[lang];
   if (!t) return;
 
@@ -221,16 +220,43 @@ function setLang(lang) {
     const key = el.dataset.i18nHtml;
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
+}
 
+function setLang(lang, animate = true) {
+  const t = T[lang];
+  if (!t) return;
+  const changed = lang !== currentLang;
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+
+  // Immediately slide segmented language indicator
+  document.querySelectorAll(".lang-switcher").forEach(sw => {
+    sw.setAttribute("data-active", lang);
+  });
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
+
+  if (!animate || !changed) {
+    applyLangTexts(lang);
+    return;
+  }
+
+  clearTimeout(langSwapTimer);
+  document.body.classList.add("lang-switching");
+  langSwapTimer = setTimeout(() => {
+    applyLangTexts(lang);
+    requestAnimationFrame(() => {
+      document.body.classList.remove("lang-switching");
+    });
+  }, 110);
 }
 
 // ============================================================
-// THEME (DAY / NIGHT PILL SWITCH)
+// THEME (PIXEL-PERFECT DAY / NIGHT PILL SWITCH)
 // ============================================================
 let currentTheme = localStorage.getItem("theme") || "dark";
+let themeTimer = null;
 
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
@@ -241,9 +267,14 @@ function applyTheme(theme) {
 }
 
 function toggleTheme() {
+  clearTimeout(themeTimer);
+  document.documentElement.classList.add("theme-transition");
   currentTheme = currentTheme === "dark" ? "light" : "dark";
   localStorage.setItem("theme", currentTheme);
   applyTheme(currentTheme);
+  themeTimer = setTimeout(() => {
+    document.documentElement.classList.remove("theme-transition");
+  }, 420);
 }
 
 // ============================================================
@@ -397,8 +428,14 @@ function downloadCV() {
 // ============================================================
 // INIT
 // ============================================================
+document.documentElement.classList.add("no-anim");
 applyTheme(currentTheme);
-setLang(currentLang);
+setLang(currentLang, false);
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    document.documentElement.classList.remove("no-anim");
+  });
+});
 
 console.log("%c <ZO/> Portfolio", "color:#7c6fff;font-size:20px;font-weight:bold;");
 console.log("%c Ziyodulla Otabayev — Backend & AI Software Engineer", "color:#98a0b3;font-size:12px;");
