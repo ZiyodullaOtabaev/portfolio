@@ -426,27 +426,37 @@ updateTime();
 setInterval(updateTime, 1000);
 
 // ============================================================
-// CERTIFICATE LIGHTBOX MODAL
+// CERTIFICATE LIGHTBOX MODAL (NATIVE TOP-LAYER DIALOG)
 // ============================================================
+const certModalEl = document.getElementById("certModal");
+
 function openCertModal(src) {
-  const modal = document.getElementById("certModal");
   const img = document.getElementById("certModalImg");
-  if (!modal || !img) return;
+  if (!certModalEl || !img) return;
   if (src) img.src = src;
-  modal.classList.add("open");
+  if (typeof certModalEl.showModal === "function") {
+    if (!certModalEl.open) certModalEl.showModal();
+  } else {
+    certModalEl.setAttribute("open", "");
+  }
   document.body.style.overflow = "hidden";
 }
 
 function closeCertModal() {
-  const modal = document.getElementById("certModal");
-  if (!modal) return;
-  modal.classList.remove("open");
+  if (!certModalEl) return;
+  if (typeof certModalEl.close === "function" && certModalEl.open) {
+    certModalEl.close();
+  } else {
+    certModalEl.removeAttribute("open");
+  }
   document.body.style.overflow = "";
 }
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeCertModal();
-});
+if (certModalEl) {
+  certModalEl.addEventListener("close", () => {
+    document.body.style.overflow = "";
+  });
+}
 
 // ============================================================
 // DOWNLOAD CV

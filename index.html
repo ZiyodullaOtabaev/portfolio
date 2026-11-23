@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20261123" />
 </head>
 <body>
 
@@ -721,8 +721,8 @@
     </div>
   </footer>
 
-  <!-- CERTIFICATE LIGHTBOX MODAL -->
-  <div id="certModal" class="cert-modal" role="dialog" aria-modal="true" aria-labelledby="certModalTitle" onclick="if(event.target===this) closeCertModal()">
+  <!-- CERTIFICATE LIGHTBOX MODAL (NATIVE TOP-LAYER DIALOG) -->
+  <dialog id="certModal" class="cert-modal" aria-labelledby="certModalTitle" onclick="if(event.target===this) closeCertModal()">
     <div class="cert-modal-dialog">
       <div class="cert-modal-header">
         <div>
@@ -737,7 +737,7 @@
         <img id="certModalImg" src="cert-google-play-ignite.jpg" alt="Google Play Academy Ignite Certificate — Ziyodulla Otabayev" />
       </div>
     </div>
-  </div>
+  </dialog>
 
   <div id="printOverlay" class="print-overlay hidden">
     <div class="print-spinner">
@@ -746,6 +746,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20261123"></script>
 </body>
 </html>
