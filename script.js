@@ -38,12 +38,15 @@ const T = {
     gpPeriod: "Issued Sep 24, 2026 · Valid through Sep 24, 2027 · ID: 195111798",
     gpDesc: "Successfully completed the Google Play Academy Ignite program, covering Android app launch readiness, Google Play Console best practices, store listing growth, and policy compliance.",
     viewCert: "View Certificate",
-    itparkName: "IT Park Khiva", itparkDegree: "Backend Development — Certificate",
-    itparkPeriod: "2021 – 2022",
-    itparkDesc: "Wrote first lines of code here in 2021. Completed the Backend Development direction in 2022 and received an official certificate. This is where the journey began.",
-    ieltsName: "IELTS — English Proficiency", ieltsDegree: "CEFR B2 — Upper-Intermediate",
-    ieltsPeriod: "IELTS · B2",
-    ieltsDesc: "Confident working proficiency in English (IELTS B2) — reading technical documentation, writing clean specifications, and collaborating with international teams.",
+    grantName: "\"Millat Umidi\" Grant Project", grantDegree: "MU University · Oliygoh.uz · IDP IELTS · iSystem IT Academy",
+    grantPeriod: "Stage 1 Certificate · June 2024",
+    grantDesc: "Awarded an official certificate by Millat Umidi University and partner institutions for successfully passing Stage 1 of the national \"Millat Umidi\" scholarship grant project.",
+    itparkName: "IT Park Khiva — IT Center", itparkDegree: "Backend Development — Official Certificate",
+    itparkPeriod: "2021 – 2022 · Issued Feb 11, 2022 · ID: B9225",
+    itparkDesc: "Wrote my first lines of code here in 2021. Successfully completed the Backend Development course at IT Park / IT Center in February 2022 (Certificate ID: B9225). This is where the engineering journey began.",
+    ieltsName: "IELTS Academic — English Proficiency", ieltsDegree: "Overall Band 5.5 · CEFR B2 (Upper-Intermediate)",
+    ieltsPeriod: "IDP · British Council · Cambridge · Issued Jul 14, 2022",
+    ieltsDesc: "Official IELTS Academic Test Report Form (Listening 5.5 · Reading 5.0 · Writing 5.5 · Speaking 5.0 · CEFR B2) — confident English for technical documentation, clean specs, and international collaboration.",
     labelSkills: "04 / Skills", titleSkills: "Skills & Technologies",
     skillLang: "Languages", skillFramework: "Frameworks", skillDb: "Databases & BaaS",
     skillInfra: "Infrastructure", skillAi: "AI / ML & Bots", skillSec: "Security & Payments",
@@ -108,12 +111,15 @@ const T = {
     gpPeriod: "Berilgan: 24-sentabr 2026 · Amal qilish: 24-sentabr 2027 · ID: 195111798",
     gpDesc: "Google Play Academy Ignite dasturini muvaffaqiyatli tamomladim — Android ilovalarni Google Play'ga tayyorlash, Play Console standartlari, ilova sifatini oshirish va siyosat talablariga muvofiqlik bo'yicha rasmiy sertifikat.",
     viewCert: "Sertifikatni ko'rish",
-    itparkName: "IT Park Xiva", itparkDegree: "Backend Dasturlash — Sertifikat",
-    itparkPeriod: "2021 – 2022",
-    itparkDesc: "2021-yilda shu yerda birinchi kod satrlarini yozdim. 2022-yilda Backend yo'nalishini tugatib, rasmiy sertifikatga ega bo'ldim. Dasturlash sayohatim aynan shu yerdan boshlandi.",
-    ieltsName: "IELTS — Ingliz tili darajasi", ieltsDegree: "CEFR B2 daraja — Upper-Intermediate",
-    ieltsPeriod: "IELTS · B2",
-    ieltsDesc: "Ingliz tilini IELTS B2 darajasida bilaman — texnik hujjatlarni erkin o'qish, xalqaro jamoalar bilan muloqot qilish va ingliz tilida hujjatlar yozish.",
+    grantName: "\"Millat Umidi\" Grant Loyihasi", grantDegree: "MU University · Oliygoh.uz · IDP IELTS · iSystem IT Academy",
+    grantPeriod: "1-bosqich sertifikati · Iyun 2024",
+    grantDesc: "Millat Umidi Universiteti va hamkor ta'lim muassasalari tomonidan \"Millat Umidi\" grant loyihasining birinchi bosqichidan muvaffaqiyatli o'tganligi uchun taqdim etilgan rasmiy sertifikat.",
+    itparkName: "IT Park Xiva — IT Center", itparkDegree: "Backend-dasturlash — Rasmiy Sertifikat",
+    itparkPeriod: "2021 – 2022 · Berilgan: 11.02.2022 · ID: B9225",
+    itparkDesc: "2021-yilda shu yerda birinchi kod satrlarini yozdim. 2022-yil 11-fevralda IT Park / IT Center «Backend-dasturlash» kursini muvaffaqiyatli yakunlab, rasmiy sertifikat (ID: B9225) oldim.",
+    ieltsName: "IELTS Academic — Ingliz tili sertifikati", ieltsDegree: "Overall 5.5 · CEFR B2 (Upper-Intermediate)",
+    ieltsPeriod: "IDP · British Council · Cambridge · 14.07.2022",
+    ieltsDesc: "Rasmiy IELTS Academic sertifikati (Listening 5.5 · Reading 5.0 · Writing 5.5 · Speaking 5.0 · CEFR B2) — texnik hujjatlarni erkin o'qish va xalqaro jamoalar bilan ishlash darajasi.",
     labelSkills: "04 / Ko'nikmalar", titleSkills: "Ko'nikmalar va Texnologiyalar",
     skillLang: "Dasturlash tillari", skillFramework: "Freymvorklar", skillDb: "Ma'lumotlar bazasi",
     skillInfra: "Infratuzilma", skillAi: "Sun'iy intellekt va Botlar", skillSec: "Xavfsizlik va To'lovlar",
@@ -178,12 +184,15 @@ const T = {
     gpPeriod: "Выдан: 24 сент. 2026 · Действителен до: 24 сент. 2027 · ID: 195111798",
     gpDesc: "Успешно завершил программу Google Play Academy Ignite — подготовка Android-приложений к запуску, стандарты Google Play Console, рост в сторе, соответствие политикам и оптимизация качества.",
     viewCert: "Посмотреть сертификат",
-    itparkName: "IT Park Хива", itparkDegree: "Backend-разработка — Сертификат",
-    itparkPeriod: "2021 – 2022",
-    itparkDesc: "Написал первые строки кода здесь в 2021 году. В 2022 году окончил направление Backend-разработки и получил официальный сертификат. Именно здесь началось путешествие.",
-    ieltsName: "IELTS — Английский язык", ieltsDegree: "Уровень CEFR B2 — Upper-Intermediate",
-    ieltsPeriod: "IELTS · B2",
-    ieltsDesc: "Уверенное владение английским языком на уровне IELTS B2 — чтение технической документации, ведение документации и общение в международных командах.",
+    grantName: "Грантовый проект «Millat Umidi»", grantDegree: "MU University · Oliygoh.uz · IDP IELTS · iSystem IT Academy",
+    grantPeriod: "Сертификат 1-го этапа · Июнь 2024",
+    grantDesc: "Официальный сертификат Millat Umidi University и партнёров за успешное прохождение первого этапа национального грантового проекта «Millat Umidi».",
+    itparkName: "IT Park Хива — IT Center", itparkDegree: "Backend-разработка — Официальный сертификат",
+    itparkPeriod: "2021 – 2022 · Выдан: 11.02.2022 · ID: B9225",
+    itparkDesc: "Написал первые строки кода здесь в 2021 году. Успешно окончил курс «Backend-разработка» в IT Park / IT Center в феврале 2022 года (ID сертификата: B9225).",
+    ieltsName: "IELTS Academic — Сертификат английского", ieltsDegree: "Overall Band 5.5 · CEFR B2 (Upper-Intermediate)",
+    ieltsPeriod: "IDP · British Council · Cambridge · 14.07.2022",
+    ieltsDesc: "Официальный сертификат IELTS Academic (Listening 5.5 · Reading 5.0 · Writing 5.5 · Speaking 5.0 · CEFR B2) — уверенное владение техническим английским и работа с международными командами.",
     labelSkills: "04 / Навыки", titleSkills: "Навыки и технологии",
     skillLang: "Языки программирования", skillFramework: "Фреймворки", skillDb: "Базы данных и BaaS",
     skillInfra: "Инфраструктура", skillAi: "ИИ / ML и Боты", skillSec: "Безопасность и Платежи",
@@ -429,11 +438,25 @@ setInterval(updateTime, 1000);
 // CERTIFICATE LIGHTBOX MODAL (NATIVE TOP-LAYER DIALOG)
 // ============================================================
 const certModalEl = document.getElementById("certModal");
+let activeCertKeys = { title: "gpName", meta: "gpPeriod" };
 
-function openCertModal(src) {
+function updateCertModalCaption() {
+  const t = T[currentLang] || T.en;
+  const titleEl = document.getElementById("certModalTitle");
+  const metaEl = document.getElementById("certModalMeta");
+  if (titleEl && t[activeCertKeys.title]) titleEl.textContent = t[activeCertKeys.title];
+  if (metaEl && t[activeCertKeys.meta]) metaEl.textContent = t[activeCertKeys.meta];
+}
+
+function openCertModal(src, titleKey, metaKey) {
   const img = document.getElementById("certModalImg");
   if (!certModalEl || !img) return;
   if (src) img.src = src;
+  if (titleKey && metaKey) {
+    activeCertKeys = { title: titleKey, meta: metaKey };
+  }
+  updateCertModalCaption();
+  img.alt = (document.getElementById("certModalTitle")?.textContent || "Certificate") + " — Ziyodulla Otabayev";
   if (typeof certModalEl.showModal === "function") {
     if (!certModalEl.open) certModalEl.showModal();
   } else {

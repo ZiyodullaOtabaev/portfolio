@@ -732,6 +732,8 @@ main, .footer { position: relative; z-index: 1; }
 .edu-period { font-family: var(--mono); color: var(--text-dim); font-size: 0.76rem; margin-bottom: 0.7rem; }
 .edu-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.75; }
 .icon-tile-play { background: rgba(52, 168, 83, 0.1); border-color: rgba(52, 168, 83, 0.28); }
+.icon-tile-gold { background: rgba(245, 158, 11, 0.11); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b; }
+.icon-tile-itpark { background: rgba(112, 173, 71, 0.12); border-color: rgba(112, 173, 71, 0.32); color: #7cb342; }
 .cert-view-btn {
   display: inline-flex;
   align-items: center;
