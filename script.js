@@ -34,6 +34,10 @@ const T = {
     uniName: "Millat Umidi University", uniDegree: "Bachelor's — Software Engineering",
     uniPeriod: "2022 – 2026",
     uniDesc: "Graduated with a Bachelor's degree in Software Engineering. Studied algorithms, data structures, databases, and modern backend development practices.",
+    gpName: "Google Play Academy Ignite", gpDegree: "Google Play Academy — Official Certificate",
+    gpPeriod: "Issued Sep 24, 2026 · Valid through Sep 24, 2027 · ID: 195111798",
+    gpDesc: "Successfully completed the Google Play Academy Ignite program, covering Android app launch readiness, Google Play Console best practices, store listing growth, and policy compliance.",
+    viewCert: "View Certificate",
     itparkName: "IT Park Khiva", itparkDegree: "Backend Development — Certificate",
     itparkPeriod: "2021 – 2022",
     itparkDesc: "Wrote first lines of code here in 2021. Completed the Backend Development direction in 2022 and received an official certificate. This is where the journey began.",
@@ -100,6 +104,10 @@ const T = {
     uniName: "Millat Umidi Universiteti", uniDegree: "Bakalavr — Dasturiy Injiniriya",
     uniPeriod: "2022 – 2026",
     uniDesc: "Dasturiy injiniriya yo'nalishini bakalavr diplomi bilan tamomladim. Algoritmlar, ma'lumotlar tuzilmalari, ma'lumotlar bazalari va zamonaviy backend amaliyotlarini o'rgandim.",
+    gpName: "Google Play Academy Ignite", gpDegree: "Google Play Academy — Rasmiy Sertifikat",
+    gpPeriod: "Berilgan: 24-sentabr 2026 · Amal qilish: 24-sentabr 2027 · ID: 195111798",
+    gpDesc: "Google Play Academy Ignite dasturini muvaffaqiyatli tamomladim — Android ilovalarni Google Play'ga tayyorlash, Play Console standartlari, ilova sifatini oshirish va siyosat talablariga muvofiqlik bo'yicha rasmiy sertifikat.",
+    viewCert: "Sertifikatni ko'rish",
     itparkName: "IT Park Xiva", itparkDegree: "Backend Dasturlash — Sertifikat",
     itparkPeriod: "2021 – 2022",
     itparkDesc: "2021-yilda shu yerda birinchi kod satrlarini yozdim. 2022-yilda Backend yo'nalishini tugatib, rasmiy sertifikatga ega bo'ldim. Dasturlash sayohatim aynan shu yerdan boshlandi.",
@@ -166,6 +174,10 @@ const T = {
     uniName: "Университет Millat Umidi", uniDegree: "Бакалавр — Программная инженерия",
     uniPeriod: "2022 – 2026",
     uniDesc: "Окончил бакалавриат по программной инженерии. Изучал алгоритмы, структуры данных, базы данных и современные практики backend-разработки.",
+    gpName: "Google Play Academy Ignite", gpDegree: "Google Play Academy — Официальный сертификат",
+    gpPeriod: "Выдан: 24 сент. 2026 · Действителен до: 24 сент. 2027 · ID: 195111798",
+    gpDesc: "Успешно завершил программу Google Play Academy Ignite — подготовка Android-приложений к запуску, стандарты Google Play Console, рост в сторе, соответствие политикам и оптимизация качества.",
+    viewCert: "Посмотреть сертификат",
     itparkName: "IT Park Хива", itparkDegree: "Backend-разработка — Сертификат",
     itparkPeriod: "2021 – 2022",
     itparkDesc: "Написал первые строки кода здесь в 2021 году. В 2022 году окончил направление Backend-разработки и получил официальный сертификат. Именно здесь началось путешествие.",
@@ -412,6 +424,29 @@ function updateTime() {
 }
 updateTime();
 setInterval(updateTime, 1000);
+
+// ============================================================
+// CERTIFICATE LIGHTBOX MODAL
+// ============================================================
+function openCertModal(src) {
+  const modal = document.getElementById("certModal");
+  const img = document.getElementById("certModalImg");
+  if (!modal || !img) return;
+  if (src) img.src = src;
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCertModal() {
+  const modal = document.getElementById("certModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeCertModal();
+});
 
 // ============================================================
 // DOWNLOAD CV
